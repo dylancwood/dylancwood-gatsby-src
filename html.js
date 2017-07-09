@@ -13,6 +13,7 @@ module.exports = React.createClass({
     const { body } = this.props;
     const { title } = Helmet.rewind();
     const font = <link href="https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,700&subset=latin,cyrillic" rel="stylesheet" type="text/css" />;
+    const favicon = <link href="/favicon.ico" rel="shortcut icon" />;
     let css;
     if (process.env.NODE_ENV === 'production') {
       // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -28,6 +29,7 @@ module.exports = React.createClass({
           { title.toComponent() }
           { font }
           { css }
+          { favicon }
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{ __html: this.props.body }} />
